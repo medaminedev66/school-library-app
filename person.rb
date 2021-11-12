@@ -2,7 +2,7 @@ require './corrector'
 require './rental'
 
 class Person
-  attr_accessor :name, :age, :rentals
+  attr_accessor :name, :age, :rentals, :parent_permission
 
   attr_reader :id
 
