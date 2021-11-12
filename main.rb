@@ -2,11 +2,18 @@ require './person'
 require './classroom'
 require './student'
 require './book'
+require './rental'
 
 $people = []
 $books = []
+$rentals = []
 
 def main
+  puts "Welcome to our App \n\n"
+  start
+end
+
+def start
   puts "Please choose an option by enterin a number:
       1- List all books.
       2- List all people.
@@ -19,7 +26,7 @@ def main
   cases choose
 end
 
-def cases choose
+def cases(choose)
   case choose.to_i
   when 1
     list_of_books
@@ -34,21 +41,14 @@ def cases choose
     continue
   when 4
     create_book
-    main
+    continue
+  when 5
+    create_rental
+    continue
   else
     puts 'The number should be between 1 and 7'
+    start
   end
-end
-
-def person_information
-  puts 'Your name'
-  name = gets.chomp
-  puts 'Your age'
-  age = gets.chomp
-  puts 'permissin Y/N'
-  permission = gets.chomp
-  permission = permission == 'y'
-  [age, name, permission]
 end
 
 def create_person(choice)
@@ -69,21 +69,56 @@ def create_person(choice)
   end
 end
 
+def person_information
+  puts 'Your name'
+  name = gets.chomp
+  puts 'Your age'
+  age = gets.chomp
+  puts 'permissin Y/N'
+  permission = gets.chomp
+  permission = permission == 'y'
+  [age, name, permission]
+end
+
 def create_book
   puts 'Title: '
-  title= gets.chomp
+  title = gets.chomp
   puts 'Author: '
-  author=gets.chomp
+  author = gets.chomp
   $books << Book.new(title, author)
-  puts "Book is created succussfully"
+  puts 'Book is created succussfully'
+end
+
+def create_rental
+  puts "Select book from this books using the number: \n"
+  list_of_books
+  book_number = gets.chomp
+  $books.each_with_index do |book, index|
+    @selected_book = book if (index + 1) == book_number.to_i
+  end
+  # puts "title: #{@selected_book.title}, Author: #{@selected_book.author}"
+  puts "Select a person fome the following list of members buy id:\n"
+  list_all_peaple
+  person_id = gets.chomp
+  $people.each do |person|
+    @selected_person = person if person.id == person_id.to_i
+  end
+  puts 'Date:'
+  date = gets.chomp
+  if @selected_person && @selected_book
+  $rentals << Rental.new(date, @selected_person, @selected_book)
+  puts "Rental created seccussfully"
+  else
+    puts "something null"
+  end
 end
 
 def list_all_peaple
   if $people.size.zero?
     puts 'No people exist'
   else
-    puts "List of all members"
-    $people.each { |person| puts "Name: #{person.name} | Age: #{person.age} \n" }
+    puts 'List of all members'
+    $people.each { |person| puts "Name: #{person.name} | Id: #{person.id} | Age: #{person.age} \n" }
   end
 end
 
@@ -91,8 +126,8 @@ def list_of_books
   if $books.size.zero?
     puts 'No books'
   else
-    puts "List of all books \n"
-    $books.each {|book| puts "Title: #{book.title}, Author: #{book.author}"}
+    puts "List of all books: \n"
+    $books.each_with_index { |book, index| puts "#{index + 1}- Title: #{book.title}, Author: #{book.author}" }
   end
 end
 
@@ -102,9 +137,10 @@ def continue
   0: Exit\n"
   continue = gets.chomp
   if continue == '1'
-    main 
+    start
   else
-    puts "Thank you for using our app"
+    puts 'Thank you for using our app'
+  end
 end
 
 main
