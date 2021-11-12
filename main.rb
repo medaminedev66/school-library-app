@@ -45,6 +45,9 @@ def cases(choose)
   when 5
     create_rental
     continue
+  when 6
+    list_rentals_by_id
+    continue
   else
     puts 'The number should be between 1 and 7'
     start
@@ -106,10 +109,10 @@ def create_rental
   puts 'Date:'
   date = gets.chomp
   if @selected_person && @selected_book
-  $rentals << Rental.new(date, @selected_person, @selected_book)
-  puts "Rental created seccussfully"
+    $rentals << Rental.new(date, @selected_person, @selected_book)
+    puts 'Rental created seccussfully'
   else
-    puts "something null"
+    puts 'something null'
   end
 end
 
@@ -128,6 +131,21 @@ def list_of_books
   else
     puts "List of all books: \n"
     $books.each_with_index { |book, index| puts "#{index + 1}- Title: #{book.title}, Author: #{book.author}" }
+  end
+end
+
+def list_rentals_by_id
+  puts 'Give us an id'
+  id = gets.chomp
+  puts 'List of all rentals for the member '
+  $people.each { |person| @selected_person = person if person.id == id }
+  if @selected_person
+    puts "List of all rentals for #{@selected_person}, id: #{@selected_person.id}"
+    @selected_person.rentals.each do |rental|
+      puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}\n"
+    end
+  else
+    puts "The member with id: #{id} doesn't exist"
   end
 end
 
