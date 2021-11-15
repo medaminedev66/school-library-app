@@ -2,7 +2,7 @@ require './book'
 
 class HandleBooks
   attr_accessor :books
-  
+
   def initialize
     @books = []
   end

@@ -1,7 +1,7 @@
 require './rental'
 
 class HandleRentals
-  def initialize (people, books)
+  def initialize(people, books)
     @rentals = []
     @handle_people = people
     @handle_books = books

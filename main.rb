@@ -31,25 +31,18 @@ class Main
     case choose.to_i
     when 1
       @new_books.list_of_books
-      continue
     when 2
       @new_people.list_all_people
-      continue
     when 3
       @new_people.create_person
-      continue
     when 4
       @new_books.create_book
-      continue
     when 5
       @new_rentals.create_rental
-      continue
     when 6
       @new_rentals.list_rentals_by_id
-      continue
-    else
-      continue
     end
+    continue
   end
 
   def continue
