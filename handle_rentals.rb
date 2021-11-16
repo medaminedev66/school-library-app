@@ -12,7 +12,7 @@ class HandleRentals
     @handle_books.list_of_books
     book_number = gets.chomp
     @handle_books.books.each_with_index { |book, index| @selected_book = book if (index + 1) == book_number.to_i }
-    puts "Select a person fome the following list of members buy id:\n"
+    puts "Select a person from the following list of members by id:\n"
     @handle_people.list_all_people
     person_id = gets.chomp
     @handle_people.people.each { |person| @selected_person = person if person.id == person_id.to_i }
@@ -28,7 +28,6 @@ class HandleRentals
   end
 
   def list_rentals_by_id
-    # selected_person
     if @handle_people.people.empty?
       puts 'There is no rentals'
     else
