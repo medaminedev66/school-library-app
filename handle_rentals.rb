@@ -27,22 +27,12 @@ class HandleRentals
     end
   end
 
-  def list_rentals_by_id
-    if @handle_people.people.empty?
-      puts 'There is no rentals'
-    else
-      puts 'Id:'
-      id = gets.chomp
-      @handle_people.people.each { |person| @selected_person = person if person.id == id }
-      if @selected_person == 'null'
-        puts "The member with id: #{id} doesn't have rentals"
-      else
-        puts "List of all rentals for #{@selected_person.name}, id: #{@selected_person.id}:"
-        @selected_person.rentals.each do |rental|
-          puts "- Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}\n"
-        end
-      end
+  def list_rentals_by_person_id
+    print 'ID of person: '
+    id = gets.chomp.to_i
+    puts 'Rentals:'
+    @rentals.each do |rental|
+      puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id
     end
-    @selected_person = 'null'
   end
 end

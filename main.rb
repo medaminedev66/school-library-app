@@ -40,7 +40,7 @@ class Main
     when 5
       @new_rentals.create_rental
     when 6
-      @new_rentals.list_rentals_by_id
+      @new_rentals.list_rentals_by_person_id
     end
     continue
   end
