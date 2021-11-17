@@ -8,10 +8,6 @@ class Main
 
   def initialize
     @storage = Storage.new
-    # @persons = @storage.parse[:persons]
-    # @books = @storage.parse[:books]
-    # @rentals = @storage.parse[:rentals]
-
     @new_people = HandlePeople.new
     @new_books = HandleBooks.new
     @new_rentals = HandleRentals.new(@new_people, @new_books)
@@ -20,8 +16,10 @@ class Main
   def app
     puts "Welcome to our App \n\n"
     @storage.parse_books(@new_books)
+    @storage.parse_people(@new_people)
     start
     @storage.save_books(@new_books)
+    @storage.save_people(@new_people)
   end
 
   def start

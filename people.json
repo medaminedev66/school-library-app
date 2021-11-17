@@ -1,0 +1,23 @@
+[
+  {
+    "json_class": "Student",
+    "classroom": "Math",
+    "age": 18,
+    "name": "Amine",
+    "parent_permission": true
+  },
+  {
+    "json_class": "Student",
+    "classroom": "Other",
+    "age": "sdcs",
+    "name": "dcs",
+    "parent_permission": false
+  },
+  {
+    "json_class": "Teacher",
+    "specialization": "svsdv",
+    "age": "vdvd",
+    "name": "sdvsdv",
+    "parent_permission": true
+  }
+]
