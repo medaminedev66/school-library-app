@@ -1,9 +1,17 @@
 require './handle_people'
 require './handle_books'
 require './handle_rentals'
+require './storage'
 
 class Main
+  attr_accessor :persons, :books
+
   def initialize
+    @storage = Storage.new
+    # @persons = @storage.parse[:persons]
+    # @books = @storage.parse[:books]
+    # @rentals = @storage.parse[:rentals]
+
     @new_people = HandlePeople.new
     @new_books = HandleBooks.new
     @new_rentals = HandleRentals.new(@new_people, @new_books)
@@ -11,7 +19,9 @@ class Main
 
   def app
     puts "Welcome to our App \n\n"
+    @storage.parse_books(@new_books)
     start
+    @storage.save_books(@new_books)
   end
 
   def start
@@ -54,6 +64,7 @@ class Main
       start
     else
       puts 'Thank you for using our app'
+      # @storage.stringify_data(@persons, @books, @rentals)
     end
   end
 end

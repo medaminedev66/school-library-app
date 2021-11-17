@@ -12,7 +12,7 @@ class HandleBooks
     title = gets.chomp
     puts 'Author: '
     author = gets.chomp
-    @books << Book.new(title, author)
+    @books << Book.new(title: title, author: author)
     puts 'Book is created succussfully'
   end
 
