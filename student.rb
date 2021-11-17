@@ -12,4 +12,15 @@ class Student < Person
   def play_hokey
     "\(ツ)/¯"
   end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'id' => @id,
+      'age' => @age,
+      'name' => @name,
+      'classroom' => @classroom,
+      'parent_permission' => @parent_permission
+    }.to_json(*args)
+  end
 end
