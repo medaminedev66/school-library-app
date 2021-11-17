@@ -15,8 +15,11 @@ class HandlePeople
     case choice.to_i
     when 1
       info = person_information
+      puts 'permissin Y/N'
+      permission = gets.chomp
+      permission = permission == 'y'
       classroom = Classroom.new('Other')
-      @people << Student.new(classroom: classroom, age: info[0], name: info[1], parent_permission: info[2])
+      @people << Student.new(classroom: classroom, age: info[0], name: info[1], parent_permission: permission)
       puts "Student is created successfully \n"
     when 2
       info = person_information
@@ -24,10 +27,6 @@ class HandlePeople
       specialization = gets.chomp
       @people << Teacher.new(specialization: specialization, age: info[0], name: info[1], parent_permission: info[2])
       puts "Teacher is created successfully \n"
-    else
-      puts 'please choose between 1 (Student) or 2: (Teacher)'
-      choice = gets.chomp
-      create_person(choice.to_i)
     end
   end
 
@@ -36,10 +35,7 @@ class HandlePeople
     name = gets.chomp
     puts 'Your age'
     age = gets.chomp
-    puts 'permissin Y/N'
-    permission = gets.chomp
-    permission = permission == 'y'
-    [age, name, permission]
+    [age, name]
   end
 
   def list_all_people
