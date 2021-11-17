@@ -1,6 +1,8 @@
 require './rental'
 
 class HandleRentals
+  attr_reader :handle_people, :handle_books
+  attr_accessor :rentals
   def initialize(people, books)
     @rentals = []
     @handle_people = people

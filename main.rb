@@ -17,9 +17,11 @@ class Main
     puts "Welcome to our App \n\n"
     @storage.parse_books(@new_books)
     @storage.parse_people(@new_people)
+    @storage.parse_rentals(@new_rentals)
     start
     @storage.save_books(@new_books)
     @storage.save_people(@new_people)
+    # @storage.save_rentals(@new_rentals)
   end
 
   def start
