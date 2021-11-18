@@ -13,13 +13,14 @@ describe "Create a person" do
     end
   end
   
-  describe "book should have an empty rental" do
-    it "rental is an empty array" do
+  describe "Person has rental" do
+    it "Checks author of a book" do
       book = Book.new(title: "GOT", author: "George Martin")
       rental = Rental.new("2020-10-20", @person, book)
       rental_2 = @person.add_rentals(book, "2020-10-10")
       expect(rental_2.book.author).to eq('George Martin')
     end
+
     it "rental is an empty array" do
       @person.rentals.should eql []
   end

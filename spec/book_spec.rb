@@ -13,8 +13,8 @@ describe "Create a book" do
     end
   end
   
-  describe "book should have an empty rental" do
-    it "rental is an empty array" do
+  describe "book has rentals" do
+    it "Name of person that rents a book" do
       person = Person.new(age: 20, name: 'Juliana', parent_permission: true)
       rental = Rental.new("2020-10-20", person, @book)
       rental_1 = @book.add_rentals(person, "2020-10-10")
