@@ -17,6 +17,8 @@ The app allows a you to:
 
 - Run the project by running `ruby main.rb` on the command line.
 
+- To run the `tests` make sure you install rspec gem by running `gem install rspec` on the command line then run `rspec spec` on the    command line to see the test passing
+
 ## Optional
 
 - Run `bundle install` to install the `Ruby Gems` including `Rubocop`.
@@ -30,6 +32,12 @@ The app allows a you to:
 - LinkedIn: [Amine Smahi](https://www.linkedin.com/in/mohammed-amine-smahi-1b8615187/)
 
 - Twitter: [@medaminesmahi](https://twitter.com/medaminesmahi)
+
+👤 **Juliana Ifionu**
+
+- GitHub: [@julie-ify](https://github.com/julie-ify)
+
+- LinkedIn: [Juliana Ifionu](https://www.linkedin.com/in/juliana-ifionu-4a9492212/)
 
 ## 🤝 Contributing
 
