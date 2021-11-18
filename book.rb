@@ -13,4 +13,12 @@ class Book
   def add_rentals(person, date)
     Rental.new(date, person, self)
   end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'title' => @title,
+      'author' => @author
+    }.to_json(*args)
+  end
 end
