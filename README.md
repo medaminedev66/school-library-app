@@ -29,9 +29,11 @@ The app allows a you to:
 
 - GitHub: [@medaminedev66](https://github.com/medaminedev66 )
 
-- LinkedIn: [Amine Smahi](https://www.linkedin.com/in/mohammed-amine-smahi-1b8615187/)
+- LinkedIn: [Amine Smahi](https://www.linkedin.com/in/md-amine-smahi/)
 
 - Twitter: [@medaminesmahi](https://twitter.com/medaminesmahi)
+
+- AngelList: [md-amine-smahi](https://angel.co/u/md-amine-smahi) 
 
 👤 **Juliana Ifionu**
 
